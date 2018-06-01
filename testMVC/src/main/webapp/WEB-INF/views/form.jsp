@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://www.springframework.org/tags/form" prefix = "form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -28,13 +29,13 @@
 	<body id="home">
 		<div class="rain">
 			<div class="border start">
-				<form>
-					<label for="email">Email</label>
-					<input name="email" type="text" placeholder="Email"/>
-					<label for="pass">Password</label>
-					<input name="pass" type="password" placeholder="Password"/>
+				<form:form  method="POST" commandName="user" action="check-user" >
+					<form:label path="email">Email</form:label>
+					<form:input path="email" type="text" placeholder="Email"/>
+					<form:label path="password" >Password</form:label>
+					<form:input path="password" type="password" placeholder="Password"/>
                                         <input type="submit" value="LOG IN"/>
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</body>

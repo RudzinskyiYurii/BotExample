@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.core;
 
 public class ImplMessage implements Message {
 

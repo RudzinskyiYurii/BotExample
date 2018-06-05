@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.core;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,6 +6,7 @@ import java.util.Map;
 import com.epam.logicClasses.EmptyProcesse;
 import com.epam.logicClasses.HelloProcesse;
 import com.epam.logicClasses.LogicStaff;
+import com.epam.logicClasses.RoomBookingProcesse;
 
 public class MethodService {
 
@@ -22,6 +23,7 @@ public class MethodService {
 	public void addAllMethods() {
 		addHelloMethod();
 		addEmptyMethod();
+		addRoomBookingMethod();
 	}
 
 	private void addHelloMethod() {
@@ -30,6 +32,9 @@ public class MethodService {
 	}
 	private void addEmptyMethod() {
 		methods.put("empty",new EmptyProcesse());
+	}
+	private void addRoomBookingMethod() {
+		methods.put("booking", new RoomBookingProcesse());
 	}
 
 

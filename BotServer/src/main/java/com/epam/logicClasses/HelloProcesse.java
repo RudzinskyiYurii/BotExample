@@ -5,7 +5,6 @@ public class HelloProcesse implements LogicStaff {
 	private String result;
 	
 	public HelloProcesse() {
-		processed();
 	}
 	
 	public void sendHello() {
@@ -13,7 +12,7 @@ public class HelloProcesse implements LogicStaff {
 	}
 	
 	@Override
-	public boolean processed() {
+	public boolean processed(String... args) {
 		sendHello();
 		return true;
 	}

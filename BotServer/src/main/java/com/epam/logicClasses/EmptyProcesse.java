@@ -9,7 +9,7 @@ private String result;
 	}
 	
 	@Override
-	public boolean processed() {
+	public boolean processed(String... args) {
 		sendEmptyText();
 		return true;
 	}

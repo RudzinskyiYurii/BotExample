@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.core;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.epam.NLP.NLPService;
 import com.epam.logicClasses.LogicStaff;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

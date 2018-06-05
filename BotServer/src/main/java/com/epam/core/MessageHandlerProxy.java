@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.core;
 
 
 import java.io.IOException;
@@ -7,6 +7,9 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.bouncycastle.util.Arrays;
+
+import com.epam.NLP.NLPService;
 import com.epam.logicClasses.LogicStaff;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -60,16 +63,16 @@ public class MessageHandlerProxy implements HttpHandler{
 			try {
 				JwtTokenValidation.assertValidActivity(activity, authHeader, credentialProvider);
 
-				// send ack to user activity
+				// send ask to user activity
 				httpExchange.sendResponseHeaders(202, 0);
 				httpExchange.getResponseBody().close();
 
 				if (activity.type().equals(ActivityTypes.MESSAGE)) {
-					// reply activity with the same text
+
 					if (securityCheckMessage(activity.text())) {
 						sendMessageToNLPService(activity.text());
-						if(methods.get(getProcessedMessageFromNLPServise()).processed())  
-							result = methods.get(getProcessedMessageFromNLPServise()).getResult();
+						if(methods.get(getProcessedMethodFromNLPServise()).processed(getProcessedArgumentsFromNLPServise()))  
+							result = methods.get(getProcessedMethodFromNLPServise()).getResult();
 						if (result.toLowerCase().contains("empty"))
 							result = new String(activity.text());
 						
@@ -136,10 +139,18 @@ public class MessageHandlerProxy implements HttpHandler{
 		nlpService = new NLPService(userMessage);
 	}
 
-	private String getProcessedMessageFromNLPServise() {
-		return nlpService.result();
+	private String getProcessedMethodFromNLPServise() {
+		return nlpService.result().get(0);
 	}
 
+	private String[] getProcessedArgumentsFromNLPServise() {
+		String[] args = new String[nlpService.result().size() - 1];
+		for(int i = 0; i < nlpService.result().size() - 1; i++) {
+			args[i] = nlpService.result().get(i + 1);
+		}
+		return args;
+
+	}
 	
 	public void setMethods() {
 		this.methods = new MethodService().getMethods();

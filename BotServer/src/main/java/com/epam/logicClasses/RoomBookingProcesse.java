@@ -28,7 +28,9 @@ public class RoomBookingProcesse extends AbstractLogicStaff{
 	
 	private boolean magicBookingRoomMethod(String... args) {
 		System.out.println("Booking room: " + args[0] + "\n at " + args[1] + "." );
-		result = new StringBuilder("Booking room: " + args[0] + "\n at " + args[1] + "." ).toString();
+		result = new StringBuilder("Booking room " + args[0] + "\n at " + args[1] + ".\n" )
+						.append("Result status: ")
+						.append("successful!").toString();
 		return true;
 		
 	}

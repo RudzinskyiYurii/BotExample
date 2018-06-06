@@ -1,38 +1,41 @@
 package com.epam.logicClasses;
 
-public class RoomBookingProcesse extends AbstractLogicStaff{
+public class RoomBookingProcesse extends AbstractLogicStaff {
 
-	
+
 	public RoomBookingProcesse() {
 	}
-	
+
 	@Override
 	public boolean processed(String... args) {
-		
+
 		for (String arg : args)
-			if (arg.equals(null)){
+			if (arg.equals(null)) {
 				result = "Not enough arguments!";
-				return false;
+				status = false;
+				return status;
 			}
-//		if (args.length < 2) {
-//			result = "Not enough arguments!";
-//			return false;
-//		}
-			return magicBookingRoomMethod(args);
+		// if (args.length < 2) {
+		// result = "Not enough arguments!";
+		// return false;
+		// }
+		status = magicBookingRoomMethod(args);
+		return status;
 	}
 
 	@Override
-	public String getResult() {
+	public String getResultMessage() {
 		return result;
 	}
-	
+
 	private boolean magicBookingRoomMethod(String... args) {
-		System.out.println("Booking room: " + args[0] + "\n at " + args[1] + "." );
-		result = new StringBuilder("Booking room " + args[0] + "\n at " + args[1] + ".\n" )
-						.append("Result status: ")
-						.append("successful!").toString();
-		return true;
-		
+		System.out.println("Booking room: " + args[0] + "\n at " + args[1] + ".");
+		status = true;
+		result = new StringBuilder("Booking room " + args[0] + "\nat " + args[1] + ".\n").append("Result status: ")
+				.append(getPerformedWorkStatus()).toString();
+		return status;
+
 	}
+
 
 }

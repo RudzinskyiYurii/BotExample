@@ -1,6 +1,6 @@
 package com.epam.logicClasses;
 
-public class HelloProcesse implements LogicStaff {
+public class HelloProcesse extends AbstractLogicStaff {
 
 	private String result;
 	
@@ -14,12 +14,14 @@ public class HelloProcesse implements LogicStaff {
 	@Override
 	public boolean processed(String... args) {
 		sendHello();
-		return true;
+		status = true;
+		return status;
 	}
 
-	public String getResult() {
+	public String getResultMessage() {
 		return result;
 	}
+
 	
 	
 }

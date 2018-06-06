@@ -33,7 +33,7 @@ public class NLPService implements NLPMessage{
 	
 	
 	@Override
-	public List<String> result() {
+	public List<String> processedResult() {
 		return processedUserMessage;
 	}
 	

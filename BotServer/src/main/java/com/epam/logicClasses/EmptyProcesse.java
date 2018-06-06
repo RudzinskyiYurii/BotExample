@@ -1,6 +1,6 @@
 package com.epam.logicClasses;
 
-public class EmptyProcesse implements LogicStaff{
+public class EmptyProcesse extends AbstractLogicStaff{
 private String result;
 	
 	
@@ -11,10 +11,12 @@ private String result;
 	@Override
 	public boolean processed(String... args) {
 		sendEmptyText();
-		return true;
+		status = true;
+		return status;
 	}
 
-	public String getResult() {
+	public String getResultMessage() {
 		return result;
 	}
+
 }

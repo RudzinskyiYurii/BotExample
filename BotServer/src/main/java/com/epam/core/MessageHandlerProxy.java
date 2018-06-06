@@ -72,7 +72,7 @@ public class MessageHandlerProxy implements HttpHandler{
 					if (securityCheckMessage(activity.text())) {
 						sendMessageToNLPService(activity.text());
 						if(methods.get(getProcessedMethodFromNLPServise()).processed(getProcessedArgumentsFromNLPServise()))  
-							result = methods.get(getProcessedMethodFromNLPServise()).getResult();
+							result = methods.get(getProcessedMethodFromNLPServise()).getResultMessage();
 						if (result.toLowerCase().contains("empty"))
 							result = new String(activity.text());
 						
@@ -140,13 +140,13 @@ public class MessageHandlerProxy implements HttpHandler{
 	}
 
 	private String getProcessedMethodFromNLPServise() {
-		return nlpService.result().get(0);
+		return nlpService.processedResult().get(0);
 	}
 
 	private String[] getProcessedArgumentsFromNLPServise() {
-		String[] args = new String[nlpService.result().size() - 1];
-		for(int i = 0; i < nlpService.result().size() - 1; i++) {
-			args[i] = nlpService.result().get(i + 1);
+		String[] args = new String[nlpService.processedResult().size() - 1];
+		for(int i = 0; i < nlpService.processedResult().size() - 1; i++) {
+			args[i] = nlpService.processedResult().get(i + 1);
 		}
 		return args;
 

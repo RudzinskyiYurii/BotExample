@@ -1,12 +1,7 @@
-package com.epam.core;
+package com.epam.logicClasses;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import com.epam.logicClasses.EmptyProcesse;
-import com.epam.logicClasses.HelloProcesse;
-import com.epam.logicClasses.LogicStaff;
-import com.epam.logicClasses.RoomBookingProcesse;
 
 public class MethodService {
 

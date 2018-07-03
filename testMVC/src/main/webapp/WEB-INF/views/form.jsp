@@ -29,7 +29,8 @@
 	<body id="home">
 		<div class="rain">
 			<div class="border start">
-				<form:form  method="POST" commandName="user" action="check-user" >
+<%-- 				<form:form  method="GET" commandName="user" action="check-user" > --%>
+				<form:form  method="GET" commandName="user" >
 					<form:label path="email">Email</form:label>
 					<form:input path="email" type="text" placeholder="Email"/>
 					<form:label path="password" >Password</form:label>

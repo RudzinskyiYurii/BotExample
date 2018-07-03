@@ -15,7 +15,7 @@ public class DirectionsService {
 	private Map<Integer, List<Integer>> routesMap;
 	private List<Integer> routes;
 //	private static final String FILENAME = "C:\\Users\\rudzi\\Documents\\workspace-sts-3.9.4.RELEASE\\BusRoute\\src\\main\\data\\busRoutesData.txt";
-	private static final String FILENAME ="data\\busRoutesData.txt";
+	private static final String FILENAME ="data/busRoutesData.txt";
 	
 	public Direction getCurrentDirection(int departureSid, int arrivalSid) {
 		boolean getDiretion = getRouteExistsStatus(departureSid, arrivalSid);
